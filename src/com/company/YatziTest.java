@@ -1,5 +1,4 @@
 package com.company;
-import kyh.labs.lab4.TollFeeCalculator;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
@@ -11,19 +10,20 @@ public class YatziTest {
     @Test
     void isYatziWhenAllDiceMatches() {
         Die[] dice = new Die[5];
-        for(Die die: dice) {
-            die.value = 6;
+        for (int i = 0; i < dice.length; i++) {
+            dice[i] = new Die(6);
         }
         //Assert something?
+        assertTrue(YatziMain.checkForYatzi(dice));
     }
 
     @Test
     void isNotYatziWhenOneDieIsNotMatchingTheOther() {
         Die[] dice = new Die[5];
-        for(Die die: dice) {
-            die.value = 6;
+        for (int i = 0; i < dice.length; i++) {
+            dice[i] = new Die(6);
         }
-        dice[5].value = 1;
-        //Assert something?
+        dice[0].setValue(5);
+        assertFalse(YatziMain.checkForYatzi(dice));
     }
 }
