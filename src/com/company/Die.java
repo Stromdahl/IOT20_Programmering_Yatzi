@@ -1,18 +1,17 @@
 package com.company;
 
 public class Die{
-    public int value = 0;
+    private int value = 0;
 
     public Die() {
-        DieRoll();
+        roll();
     }
     public Die(int value) {
         this.value = value;
     }
 
-    public int DieRoll() {
+    public void roll() {
         value = (int)(Math.random()*6+1);
-        return value;
     }
 
     public int getValue() {
@@ -25,5 +24,9 @@ public class Die{
 
     public String getString() {
         return "Dice shows " + value;
+    }
+
+    public boolean equals(Die die){
+        return this.value == die.getValue();
     }
 }
