@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void runGame(){
+    public static void main(String[] args) {
+        System.out.println("Welcome to Yatzi!");
         Scanner sc = new Scanner(System.in);
-
         int currentTurn = 0;
         while (true) {
             Yatzi yatzi = new Yatzi();
@@ -27,10 +27,5 @@ public class Main {
                 return;
             }
         }
-    }
-
-    public static void main(String[] args) {
-        System.out.println("Welcome to Yatzi!");
-        runGame();
     }
 }
