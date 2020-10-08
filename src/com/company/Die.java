@@ -6,6 +6,7 @@ public class Die{
     public Die() {
         roll();
     }
+
     public Die(int value) {
         this.value = value;
     }
