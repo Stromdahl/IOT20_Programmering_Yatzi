@@ -22,10 +22,6 @@ public class Die{
         this.value = value;
     }
 
-    public String getString() {
-        return "Dice shows " + value;
-    }
-
     public boolean equals(Die die){
         return this.value == die.getValue();
     }

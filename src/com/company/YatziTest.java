@@ -1,8 +1,6 @@
 package com.company;
-import org.junit.jupiter.api.Test;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -14,7 +12,7 @@ public class YatziTest {
         for (int i = 0; i < dice.length; i++) {
             dice[i] = new Die(6);
         }
-        //Assert something?
+        yatzi.setDice(dice);
         assertTrue(yatzi.checkForYatzi());
     }
 

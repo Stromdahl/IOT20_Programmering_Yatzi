@@ -8,23 +8,17 @@ public class Yatzi {
         }
     }
 
-    void rollDice(){
-        for(int i = 0; i < dice.length; i++){
-            dice[i].roll();
-        }
+    public void setDice(Die[] dice){
+        this.dice = dice;
     }
 
-    public Die[] getDice() {
-        return dice;
-    }
-
-    public Die getDie(int i){
-        return dice[i];
+    public int getDieValue(int index){
+        return dice[index].getValue();
     }
 
     public void printDice(){
         for(int i = 0; i < dice.length; i++){
-            System.out.println(i + ": " + dice[i].getString());
+            System.out.println(i + ": Dice shows " + dice[i].getValue());
         }
     }
 
@@ -34,6 +28,4 @@ public class Yatzi {
         }
         return true;
     }
-
-
 }
