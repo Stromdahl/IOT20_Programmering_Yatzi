@@ -8,8 +8,10 @@ public class Yatzi {
         }
     }
 
-    public void setDice(Die[] dice){
-        this.dice = dice;
+    public void setDiceValues(int[] diceValues){
+        for(int i = 0; i < this.dice.length; i++){
+            dice[i].setValue(diceValues[i]);
+        }
     }
 
     public int getDieValue(int index){
