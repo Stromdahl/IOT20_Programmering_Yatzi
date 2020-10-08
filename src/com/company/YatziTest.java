@@ -1,6 +1,5 @@
 package com.company;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -14,32 +13,30 @@ public class YatziTest {
     void isYatziWhenAllDiceMatches() {
         Yatzi yatzi = new Yatzi();
         Die[] dice = new Die[5];
-        for (int i = 0; i < dice.length; i++) {
-            dice[i] = new Die(6);
-        }
-        yatzi.setDice(dice);
+        yatzi.setDiceValues(new int[] {6,6,6,6,6});
         assertTrue(yatzi.checkForYatzi());
     }
 
     @Test
     void isNotYatziWhenOneDieIsNotMatchingTheOther() {
         Yatzi yatzi = new Yatzi();
-        Die[] dice = new Die[5];
-        for (int i = 0; i < dice.length; i++) {
-            dice[i] = new Die(6);
-        }
-        dice[0].setValue(5);
+        yatzi.setDiceValues(new int[] {1,2,3,4,5});
         assertFalse(yatzi.checkForYatzi());
     }
 
     @Test
     void testGetDieValue(){
-
+        Yatzi yatzi = new Yatzi();
+        yatzi.setDiceValues(new int[]{3,3,3,3,3});
+        assertEquals(3, yatzi.getDieValue(0));
+        assertEquals(3, yatzi.getDieValue(1));
+        assertEquals(3, yatzi.getDieValue(2));
+        assertEquals(3, yatzi.getDieValue(3));
+        assertEquals(3, yatzi.getDieValue(4));
     }
 
     @Test
     void testPrintDice(){
-
         ByteArrayOutputStream outputStreamCaptor = new ByteArrayOutputStream();
 
         System.setOut(new PrintStream(outputStreamCaptor));
@@ -48,12 +45,8 @@ public class YatziTest {
         Yatzi yatzi = new Yatzi();
 
         //Create a array of dice with known value
-        Die[] dice = new Die[5];
-        for (int i = 0; i < dice.length; i++) {
-            dice[i] = new Die(3);
-        }
 
-        yatzi.setDice(dice);
+        yatzi.setDiceValues(new int[]{3,3,3,3,3});
         yatzi.printDice();
 
         String actualOutput = outputStreamCaptor.toString();
